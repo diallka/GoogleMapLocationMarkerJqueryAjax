@@ -31,7 +31,8 @@ public class FirstPage extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
     
         PrintWriter out = resp.getWriter();
-                    out.println("Ok");
+        String contenu = "test";
+                    out.println(contenu);
     }
 
     

@@ -15,13 +15,13 @@ import javax.persistence.Persistence;
  */
 public class UserDAO {
 
-    public void signUpUser(User user) {
-        
+    
+    //On crée un Utilisateur s'il n'existe pas
+    public void signUpUser(User user){
         EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
+        
         em.getTransaction().begin();
-        
         em.persist(user);
-        
         em.getTransaction().commit();
     }
     

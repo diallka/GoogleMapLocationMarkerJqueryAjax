@@ -13,11 +13,11 @@
     </head>
     <body>
         <h1>Sign up!</h1>
-        <form id="form" action="sign_up">
+        <form method="post">
             Name : <br/>
             <input type="text" name="name"/> <br/><br/>
             Phone: <br/>
-            <input type="number" name="phone" min="10" inputmode="numeric"/><br/><br/>
+            <input type="number" name="phone" /><br/><br/>
             Login : <br/>
             <input type="text" name="login"/><br/><br/>
             Password : <br/>

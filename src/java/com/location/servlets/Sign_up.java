@@ -5,8 +5,9 @@
  */
 package com.location.servlets;
 
+import com.location.entities.User;
+import com.location.services.UserService;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -28,7 +29,18 @@ public class Sign_up extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String name = req.getParameter("name");
+        String login = req.getParameter("login");
+        String password = req.getParameter("password");
         
+        User user = new User();
+        user.setName(name);
+        user.setLogin(login);
+        user.setPassword(password);
+        
+        new UserService().signUpUser(user);
+        
+        resp.sendRedirect("sign_in");
     }
 
     

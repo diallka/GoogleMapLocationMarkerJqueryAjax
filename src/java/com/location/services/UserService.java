@@ -5,10 +5,20 @@
  */
 package com.location.services;
 
+import com.location.dao.UserDAO;
+import com.location.entities.User;
+
 /**
  *
  * @author admin
  */
 public class UserService {
+
+    public void signUpUser(User user) {
+        UserDAO dao = new UserDAO();
+        dao.signUpUser(user);
+    }    
+
+    
     
 }

@@ -24,12 +24,11 @@ import javax.persistence.OneToMany;
 @Entity
 public class Utilisateur implements Serializable {
     
-    //Définition enum UtilType
-    public enum TypeUtil {
+    //Définition enum Type Utilisateur
+    public enum UtilType {
         ADMIN,
-        EQUIPE_EXP,
         CLIENT,
-        VISITEUR;
+        DRIVER
     }
     //********************************
     //Instanciation
@@ -37,16 +36,13 @@ public class Utilisateur implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    private String name;
     private String login;
-    private String mdp;
+    private String password;
     
     @Enumerated(EnumType.STRING)
-    public TypeUtil typeUtil;
+    public UtilType typeOfUtil;
     
-    private String adresseLivraison;
-    
-    
-   
     
     
     //**********************************
@@ -59,6 +55,16 @@ public class Utilisateur implements Serializable {
         this.id = id;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    
+    
     public String getLogin() {
         return login;
     }
@@ -67,32 +73,21 @@ public class Utilisateur implements Serializable {
         this.login = login;
     }
 
-    public String getMdp() {
-        return mdp;
+    public String getPassword() {
+        return password;
     }
 
-    public void setMdp(String mdp) {
-        this.mdp = mdp;
+    public void setPassword(String mdp) {
+        this.password = mdp;
     }
 
     
-
-    public String getAdresseLivraison() {
-        return adresseLivraison;
+    public UtilType getTypeUtil() {
+        return typeOfUtil;
     }
 
-    public void setAdresseLivraison(String adresseLivraison) {
-        this.adresseLivraison = adresseLivraison;
-    }
-
-   
-
-    public TypeUtil getTypeUtil() {
-        return typeUtil;
-    }
-
-    public void setTypeUtil(TypeUtil typeUtil) {
-        this.typeUtil = typeUtil;
+    public void setTypeUtil(UtilType typeUtil) {
+        this.typeOfUtil = typeUtil;
     }
     
 

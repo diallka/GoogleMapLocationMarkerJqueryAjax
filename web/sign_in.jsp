@@ -13,7 +13,7 @@
     </head>
     <body>
         <h1>Sign in to your account!</h1>
-        <form action="sign_in" name="form" id="form">
+        <form method="post">
             Login : <br/>
             <input type="text" name="login" id="login"/> <br/><br/>
             Password : <br/>

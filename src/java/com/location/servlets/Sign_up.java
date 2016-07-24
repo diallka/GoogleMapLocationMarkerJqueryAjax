@@ -5,14 +5,14 @@
  */
 package com.location.servlets;
 
-import com.location.entities.User;
-import com.location.services.UserService;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import com.location.entities.Utilisateur;
+import com.location.services.UserService;
 
 /**
  *
@@ -22,26 +22,39 @@ import javax.servlet.http.HttpServletResponse;
 public class Sign_up extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    //Méthode doPost envoie des données
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         
-        req.getRequestDispatcher("sign_up.jsp").forward(req, resp);
+        String name = request.getParameter("name");
+        String login = request.getParameter("login");
+        String password = request.getParameter("password");
+
+        Utilisateur util = new Utilisateur();
+        util.setName(name);
+        util.setLogin(login);
+        util.setPassword(password);
+
+        //util.getEtatUtil(Utilisateur.EtatUtil.VALIDE);
+        //Vérifier si utilisateur existe en BDD
+        new UserService().inscription(util);
+//
+//        //Envoi email
+//        String mailDest = request.getParameter(email);
+//        String titre = "Titre";
+//        String msg = "Votre inscription sera validé sous 24h";
+//
+//        new UtilisateurService().envoyerMail(mailDest, titre, msg);
+        //Rédirection vers 
+        response.sendRedirect("sign_in");
+
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String name = req.getParameter("name");
-        String login = req.getParameter("login");
-        String password = req.getParameter("password");
-        
-        User user = new User();
-        user.setName(name);
-        user.setLogin(login);
-        user.setPassword(password);
-        
-        new UserService().signUpUser(user);
-        
-        resp.sendRedirect("sign_in");
+    //Méthode doGet recupère des données
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        //Renvoyer vers  la jsp "form.jso"
+        request.getRequestDispatcher("sign_up.jsp").forward(request, response);
     }
 
-    
 }

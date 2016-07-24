@@ -5,8 +5,9 @@
  */
 package com.location.services;
 
+import java.util.List;
 import com.location.dao.UserDAO;
-import com.location.entities.User;
+import com.location.entities.Utilisateur;
 
 /**
  *
@@ -14,11 +15,23 @@ import com.location.entities.User;
  */
 public class UserService {
 
-    public void signUpUser(User user) {
-        UserDAO dao = new UserDAO();
-        dao.signUpUser(user);
-    }    
+    //On recherche un utilisateur existant pour le connecter
+    public Utilisateur rechercheParLoginEtMdp(String login, String password) {
+   
+        return new UserDAO().rechercheParLoginEtMdp(login, password);
+    }
 
+    //On gere la verifiaction et l'inscription
+    public void inscription(Utilisateur util) {
+        UserDAO dao = new UserDAO();
+        //On verifie le nouveau login, s'il existe on renvoit une erreur,
+        List<Utilisateur> listeUtilAvecCeLogin = dao.rechercheParLoginEtMdp(util.getLogin());
+        if(listeUtilAvecCeLogin.size() > 0)
+            throw new RuntimeException("Ce login existe dejà");
+        
+        // s'il n'existe pas on le crée
+        dao.creerUtilisateur(util);
+    }
     
     
 }

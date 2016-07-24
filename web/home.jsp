@@ -4,7 +4,9 @@
     Author     : admin
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <html>
     <head>
         <title>Geolocation</title>
@@ -29,10 +31,10 @@
         </div>
         <br/>
         <div> 
-                <form action="${pageContext.request.contextPath}/logout" method="post">
-                    <input type="submit" name="logout" value="logout">
-                </form>
-                    <sup>Welcome </sup> ... 
+            <form action="${pageContext.request.contextPath}/logout" method="post">
+                <input type="submit" name="logout" value="logout">
+            </form>
+            <sup>Welcome </sup>... 
         </div>
         <script src="js/app.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBKxpaAK3n4b5EiiF3m5zcg-pmLpaBuIX8&callback=initMap" async defer></script>

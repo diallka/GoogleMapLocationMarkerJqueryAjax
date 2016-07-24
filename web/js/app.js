@@ -45,7 +45,10 @@ function initMap() {
             {
                 //Onutilise bulleInfo pour afficher une information
                 iw.setContent('Commander ici<hr>  <br/> Tarif: 30 cent /km<br/><br/> <form action="home_page" id="form"> Destination: <input type="text" id="dest"/> <input type="submit" /></form>');
+                //iw.setContent('<button id="btn">ok</button> ');
+               //iw.setContent('<a href="mettre_en_session>Commander ici<a>');
                 //window.location.href = this.url;
+                
                 iw.open(map, this);
 //                $.ajax({
 //                    type: 'POST',
@@ -107,6 +110,8 @@ function initMap() {
 
 
 }
+
+      
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     infoWindow.setPosition(pos);

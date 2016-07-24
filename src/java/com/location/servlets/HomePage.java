@@ -24,6 +24,7 @@ public class HomePage extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+        
         req.getRequestDispatcher("home.jsp").forward(req, resp);
     }
 
@@ -32,11 +33,12 @@ public class HomePage extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 //        req.getSession().invalidate();
 //        resp.sendRedirect(req.getContextPath() + "/logout");
+    
         HttpSession session = req.getSession();
         if (req.getParameter("logout") != null) {
             session.invalidate();
             resp.sendRedirect(req.getContextPath() + "/logout");
-            return; 
+            return;
         }
     }
 

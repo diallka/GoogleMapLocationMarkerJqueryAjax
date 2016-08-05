@@ -4,7 +4,6 @@
     Author     : Pro
 --%>
 
-<!--ajouter library jstl sinon $.. ne fonctionne pas-->
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -13,11 +12,9 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Template Page</title>
-        
     </head>
     <body>
-        
-            <h1>Sign up!</h1>
+        <h1>Sign up!</h1>
         <form method="post">
             Name : <br/>
             <input type="text" name="name"/> <br/><br/>
@@ -29,8 +26,6 @@
             <input type="password" name="password"/><br/><br/>
             <input type="submit" value="send"/>
         </form>
-       
-        </div>
     </body>
 </html>
 

@@ -19,13 +19,11 @@ import javax.servlet.http.HttpSession;
  * @author admin
  */
 @WebServlet(urlPatterns = {"/home_page"})
-public class HomePage extends HttpServlet {
+public class Client extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-        
-        req.getRequestDispatcher("home.jsp").forward(req, resp);
+        req.getRequestDispatcher("client_home_page.jsp").forward(req, resp);
     }
 
     @Override
@@ -33,7 +31,6 @@ public class HomePage extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 //        req.getSession().invalidate();
 //        resp.sendRedirect(req.getContextPath() + "/logout");
-    
         HttpSession session = req.getSession();
         if (req.getParameter("logout") != null) {
             session.invalidate();

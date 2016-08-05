@@ -44,7 +44,7 @@ function initMap() {
             google.maps.event.addListener(marker, 'click', function ()
             {
                 //Onutilise bulleInfo pour afficher une information
-                iw.setContent('Commander ici<hr>  <br/> Tarif: 30 cent /km<br/><br/> <form action="home_page" id="form"> Destination: <input type="text" id="dest"/> <input type="submit" /></form>');
+                iw.setContent('Commander ici<hr>  <br/> Tarif: 30 cent /km<br/><br/> <form action="driver_home" id="form"> Destination: <input type="text" id="dest"/> <input type="submit" /></form>');
                 //iw.setContent('<button id="btn">ok</button> ');
                //iw.setContent('<a href="mettre_en_session>Commander ici<a>');
                 //window.location.href = this.url;

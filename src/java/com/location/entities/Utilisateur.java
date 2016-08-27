@@ -26,7 +26,6 @@ public class Utilisateur implements Serializable {
     
     //Définition enum Type Utilisateur
     public enum UtilType {
-        ADMIN,
         CLIENT,
         DRIVER
     }
@@ -36,6 +35,8 @@ public class Utilisateur implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    private String longitude;
+    private String latitude;
     private String name;
     private String login;
     private String password;
@@ -55,6 +56,34 @@ public class Utilisateur implements Serializable {
         this.id = id;
     }
 
+    public UtilType getTypeOfUtil() {
+        return typeOfUtil;
+    }
+
+    public void setTypeOfUtil(UtilType typeOfUtil) {
+        this.typeOfUtil = typeOfUtil;
+    }
+    
+    
+
+    public String getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
+    }
+
+    public String getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(String latitude) {
+        this.latitude = latitude;
+    }
+
+
+   
     public String getName() {
         return name;
     }
@@ -81,14 +110,6 @@ public class Utilisateur implements Serializable {
         this.password = mdp;
     }
 
-    
-    public UtilType getTypeUtil() {
-        return typeOfUtil;
-    }
-
-    public void setTypeUtil(UtilType typeUtil) {
-        this.typeOfUtil = typeUtil;
-    }
     
 
     @Override

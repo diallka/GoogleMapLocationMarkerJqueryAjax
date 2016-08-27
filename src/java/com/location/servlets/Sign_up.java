@@ -28,11 +28,18 @@ public class Sign_up extends HttpServlet {
         String name = request.getParameter("name");
         String login = request.getParameter("login");
         String password = request.getParameter("password");
+        String longitude = request.getParameter("longitude");
+        String latitude = request.getParameter("latitude");
+        String type_util = request.getParameter("type_util");
 
         Utilisateur util = new Utilisateur();
+        util.setLongitude(longitude);
+        util.setLatitude(latitude);
         util.setName(name);
         util.setLogin(login);
         util.setPassword(password);
+        //util.setTypeUtil(Utilisateur.UtilType.valueOf(type_util.toUpperCase()));
+        util.setTypeOfUtil(Utilisateur.UtilType.valueOf(type_util.toUpperCase()));
 
         //util.getEtatUtil(Utilisateur.EtatUtil.VALIDE);
         //Vérifier si utilisateur existe en BDD
